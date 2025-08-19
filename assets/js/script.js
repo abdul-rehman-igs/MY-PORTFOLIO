@@ -49,7 +49,7 @@ $(document).ready(function () {
     $("#contact-form").submit(function (event) {
         event.preventDefault(); // Prevent page reload
 
-        emailjs.sendForm("service_vuctd9a", "template_00ofmlc", "#contact-form")
+        emailjs.sendForm("service_lx1lx69", "template_00ofmlc", "#contact-form")
             .then(function (response) {
                 console.log("SUCCESS!", response.status, response.text);
                 $("#contact-form")[0].reset(); // Reset form
