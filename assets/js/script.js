@@ -39,6 +39,28 @@ $(document).ready(function () {
 
 });
 
+// Emailjs
+
+$(document).ready(function () {
+    // Initialize EmailJS with your Public Key
+    emailjs.init("T7BDE90eD6ka7-xYc");
+
+    // Form submission
+    $("#contact-form").submit(function (event) {
+        event.preventDefault(); // Prevent page reload
+
+        emailjs.sendForm("service_vuctd9a", "template_00ofmlc", "#contact-form")
+            .then(function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                $("#contact-form")[0].reset(); // Reset form
+                alert("✅ Form Submitted Successfully!");
+            }, function (error) {
+                console.log("FAILED...", error);
+                alert("❌ Form Submission Failed! Try Again.");
+            });
+    });
+});
+
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
